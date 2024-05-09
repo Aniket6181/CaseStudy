@@ -1,8 +1,14 @@
 Feature: Article publishing and deleting
 
-Scenario: Sign Up
+Scenario Outline: Sign Up
 Given User is on Sign Up page
 When User enters details
+
+Examples:
+    | username   | email | password |
+    | Aniket | aniket@gmail.com  | Test@123 |
+    
+
 Then User click on signup button
 
 
