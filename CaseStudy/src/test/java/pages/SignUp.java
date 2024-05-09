@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SignUp {
 	
-	@FindBy(linkText  = "Sign up")
+	@FindBy(xpath   = "(//a[@class='nav-link '])[2]")
 	WebElement signUpButton;
 	
 	@FindBy(name = "username")
@@ -22,12 +22,16 @@ public class SignUp {
 	public SignUp(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void SignUpButton () {
+		signUpButton.click();
+	}
 
 	public void signup(String strUser, String strEmail, String strPwd) {
-		signUpButton.click();
+		
 		username.sendKeys(strUser);
 		email.sendKeys(strEmail);
-		password.sendKeys("strPassword");
+		password.sendKeys(strPwd);
 		signUpButton.click();
 	}
 
